@@ -118,6 +118,9 @@ h3 {
     padding: 20px;
     margin: 0 5px;
   }
+  .card-description {
+    line-height: normal;
+  }
 }
 
 @keyframes slide {
