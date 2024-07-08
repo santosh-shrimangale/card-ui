@@ -6,30 +6,34 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
+  box-sizing: border-box;
 }
 h1 {
-  font-size: 65px;
+  font-size: 80px;
   color: #ffffff;
   margin: 20px 0 10px;
+  font-weight: 700;
   text-align: center;
+  line-height: 97.52px;
 }
 h3 {
-  font-size: 25px;
-  color: #ffffff;
-  font-weight: 100;
-  letter-spacing: 1px;
-  margin-bottom: 40px;
   text-align: center;
-  width: 52%;
+  font-size: 28px;
+  color: #ffffff;
+  margin-bottom: 40px;
+  width: 65%;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 34.13px;
 }
 .carousel {
   position: relative;
-  width: 80%;
+  width: 100%;
   overflow: hidden;
   cursor: grab;
-  height: 400px;
+  height: 505px;
   padding-block: 30px;
-  margin-top: 80px;
+  margin-top: 40px;
 }
 .carousel:active {
   cursor: grabbing;
@@ -37,14 +41,15 @@ h3 {
 .carousel-inner {
   display: flex;
   transition: transform 0.5s ease-in-out;
+  user-select: none;
   -webkit-user-select: none;
 }
 .card {
-  min-width: 300px;
+  width: 460px;
+  height: 365px;
   flex: 0 0 33.33%;
-  max-width: 33.33%;
   box-sizing: border-box;
-  padding: 20px;
+  padding: 40px 30px 50px 30px;
   margin: 0 16px;
   background-color: #282828;
   border-radius: 20px;
@@ -53,11 +58,12 @@ h3 {
   overflow: hidden;
   text-align: center;
   color: #858585;
+  transform: none;
 }
 .card-img {
   border-radius: 50%;
-  width: 77px;
-  height: 77px;
+  width: 60px;
+  height: 60px;
   object-fit: cover;
   margin-inline: auto;
 }
@@ -66,14 +72,17 @@ h3 {
 }
 .card-title {
   font-weight: 500;
-  font-size: 23px;
+  font-size: 22px;
   color: #a9a9a9;
+  text-align: center;
 }
 .card-description {
-  font-size: 20px;
+  font-size: 22px;
+  font-family: Poppins;
+  font-weight: 400;
   color: #d4d4d4;
+  line-height: 33px;
 }
-/* Adjust positions for first and second cards */
 .card:nth-child(1) {
   transform: translateY(-20px);
 }
@@ -90,8 +99,38 @@ h3 {
   transform: translateY(-20px);
 }
 
-@media (max-width:1024px) {
-  h3{
-    width: auto;
+@media (max-width: 768px) {
+  h1 {
+    font-size: 10vw;
   }
+  h3 {
+    width: 100%;
+    font-size: 5vw;
+  }
+  .carousel {
+    height: auto;
+    margin-top: 20px;
+  }
+  .card {
+    flex: 0 0 80%;
+    max-width: 80%;
+    height: auto;
+    padding: 20px;
+    margin: 0 5px;
+  }
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+.carousel-inner {
+  animation: 35s slide infinite linear;
+}
+.carousel:hover .carousel-inner {
+  animation-play-state: paused;
 }
